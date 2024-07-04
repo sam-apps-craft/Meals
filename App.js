@@ -3,7 +3,7 @@ import { StyleSheet, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { Ionicons } from "@expo/vector-icons";
 
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
@@ -21,9 +21,10 @@ function DrawerNavigator() {
         headerStyle: { backgroundColor: "#351401" },
         headerTintColor: "white",
         sceneContainerStyle: { backgroundColor: "#3f2f25" },
-        drawerContentStyle: { backgroundColor: "#3f2f25" },
+        drawerContentStyle: { backgroundColor: "#351401" },
         drawerInactiveTintColor: "white",
-        drawerActiveTintColor: "#eb6c23",
+        drawerActiveTintColor: "#351401",
+        drawerActiveBackgroundColor: "#e4baa1",
       }}
     >
       <Drawer.Screen
@@ -66,7 +67,6 @@ export default function App() {
               name="Drawer"
               component={DrawerNavigator}
               options={{
-                title: "All Categories",
                 headerShown: false,
               }}
             />
@@ -77,7 +77,9 @@ export default function App() {
             <Stack.Screen
               name="MealDetail"
               component={MealDetailScreen}
-              options={{ title: "About The Meal" }}
+              options={{
+                title: "About the Meal",
+              }}
             />
           </Stack.Navigator>
         </NavigationContainer>
